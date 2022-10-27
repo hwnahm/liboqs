@@ -860,8 +860,8 @@ OQS_API OQS_SIG *OQS_SIG_new(const char *method_name) {
 	}
 }
 
-OQS_API OQS_STATUS OQS_SIG_keypair(const OQS_SIG *sig, uint8_t *public_key, uint8_t *secret_key) {
-	if (sig == NULL || sig->keypair(public_key, secret_key) != OQS_SUCCESS) {
+OQS_API OQS_STATUS OQS_SIG_keypair(const OQS_SIG *sig, uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+	if (sig == NULL || sig->keypair(public_key, secret_key, seed) != OQS_SUCCESS) {
 		return OQS_ERROR;
 	} else {
 		return OQS_SUCCESS;

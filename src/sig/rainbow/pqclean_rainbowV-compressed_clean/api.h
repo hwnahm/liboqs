@@ -9,7 +9,7 @@
 #define PQCLEAN_RAINBOWVCOMPRESSED_CLEAN_CRYPTO_BYTES 212
 #define PQCLEAN_RAINBOWVCOMPRESSED_CLEAN_CRYPTO_ALGNAME "RAINBOW(256,96,36,64) - compressed"
 
-int PQCLEAN_RAINBOWVCOMPRESSED_CLEAN_crypto_sign_keypair(uint8_t *pk, uint8_t *sk);
+int PQCLEAN_RAINBOWVCOMPRESSED_CLEAN_crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 
 
 int PQCLEAN_RAINBOWVCOMPRESSED_CLEAN_crypto_sign_signature(

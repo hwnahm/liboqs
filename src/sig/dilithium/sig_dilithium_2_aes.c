@@ -29,7 +29,7 @@ OQS_SIG *OQS_SIG_dilithium_2_aes_new(void) {
 	return sig;
 }
 
-extern int pqcrystals_dilithium2aes_ref_keypair(uint8_t *pk, uint8_t *sk);
+extern int pqcrystals_dilithium2aes_ref_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int pqcrystals_dilithium2aes_ref_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int pqcrystals_dilithium2aes_ref_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 
@@ -39,19 +39,19 @@ extern int pqcrystals_dilithium2aes_avx2_signature(uint8_t *sig, size_t *siglen,
 extern int pqcrystals_dilithium2aes_avx2_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 #endif
 
-OQS_API OQS_STATUS OQS_SIG_dilithium_2_aes_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_dilithium_2_aes_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
 #if defined(OQS_ENABLE_SIG_dilithium_2_aes_avx2)
 #if defined(OQS_DIST_BUILD)
 	if (OQS_CPU_has_extension(OQS_CPU_EXT_AVX2) && OQS_CPU_has_extension(OQS_CPU_EXT_AES) && OQS_CPU_has_extension(OQS_CPU_EXT_POPCNT)) {
 #endif /* OQS_DIST_BUILD */
-		return (OQS_STATUS) pqcrystals_dilithium2aes_avx2_keypair(public_key, secret_key);
+		return (OQS_STATUS) pqcrystals_dilithium2aes_avx2_keypair(public_key, secret_key, seed);
 #if defined(OQS_DIST_BUILD)
 	} else {
-		return (OQS_STATUS) pqcrystals_dilithium2aes_ref_keypair(public_key, secret_key);
+		return (OQS_STATUS) pqcrystals_dilithium2aes_ref_keypair(public_key, secret_key, seed);
 	}
 #endif /* OQS_DIST_BUILD */
 #else
-	return (OQS_STATUS) pqcrystals_dilithium2aes_ref_keypair(public_key, secret_key);
+	return (OQS_STATUS) pqcrystals_dilithium2aes_ref_keypair(public_key, secret_key, seed);
 #endif
 }
 

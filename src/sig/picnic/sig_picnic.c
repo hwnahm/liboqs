@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 #include <oqs/sig.h>
+#include <stdio.h>
 
 #if defined(OQS_SIG_alg_picnic_L1_UR) || defined(OQS_SIG_alg_picnic_L1_FS) || defined(OQS_SIG_alg_picnic_L1_full) || defined(OQS_SIG_alg_picnic_L3_UR) || defined(OQS_SIG_alg_picnic_L3_FS) || defined(OQS_SIG_alg_picnic_L3_full) || defined(OQS_SIG_alg_picnic_L5_UR) || defined(OQS_SIG_alg_picnic_L5_FS) || defined(OQS_SIG_alg_picnic_L5_full) || defined(OQS_SIG_alg_picnic3_L1) || defined(OQS_SIG_alg_picnic3_L3) || defined(OQS_SIG_alg_picnic3_L5)
 
@@ -141,7 +142,8 @@ OQS_SIG *OQS_SIG_picnic_L1_FS_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L1_FS_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L1_FS_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L1_FS, secret_key, public_key);
 }
 
@@ -180,7 +182,8 @@ OQS_SIG *OQS_SIG_picnic_L1_UR_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L1_UR_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L1_UR_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L1_UR, secret_key, public_key);
 }
 
@@ -219,7 +222,8 @@ OQS_SIG *OQS_SIG_picnic_L1_full_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L1_full_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L1_full_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L1_full, secret_key, public_key);
 }
 
@@ -258,7 +262,8 @@ OQS_SIG *OQS_SIG_picnic_L3_FS_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L3_FS_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L3_FS_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L3_FS, secret_key, public_key);
 }
 
@@ -297,7 +302,8 @@ OQS_SIG *OQS_SIG_picnic_L3_UR_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L3_UR_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L3_UR_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L3_UR, secret_key, public_key);
 }
 
@@ -336,7 +342,8 @@ OQS_SIG *OQS_SIG_picnic_L3_full_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L3_full_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L3_full_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L3_full, secret_key, public_key);
 }
 
@@ -375,7 +382,8 @@ OQS_SIG *OQS_SIG_picnic_L5_FS_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L5_FS_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L5_FS_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L5_FS, secret_key, public_key);
 }
 
@@ -415,7 +423,8 @@ OQS_SIG *OQS_SIG_picnic_L5_UR_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L5_UR_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L5_UR_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L5_UR, secret_key, public_key);
 }
 
@@ -454,7 +463,8 @@ OQS_SIG *OQS_SIG_picnic_L5_full_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L5_full_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic_L5_full_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic_L5_full, secret_key, public_key);
 }
 
@@ -491,7 +501,8 @@ OQS_SIG *OQS_SIG_picnic3_L1_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic3_L1_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic3_L1_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic3_L1, secret_key, public_key);
 }
 
@@ -529,7 +540,8 @@ OQS_SIG *OQS_SIG_picnic3_L3_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic3_L3_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic3_L3_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic3_L3, secret_key, public_key);
 }
 
@@ -567,7 +579,8 @@ OQS_SIG *OQS_SIG_picnic3_L5_new(void) {
 	return sig;
 }
 
-OQS_API OQS_STATUS OQS_SIG_picnic3_L5_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_picnic3_L5_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+    if (seed != NULL) printf("%s\n", seed);
 	return common_picnic_keypair(Picnic3_L5, secret_key, public_key);
 }
 
@@ -580,3 +593,4 @@ OQS_API OQS_STATUS OQS_SIG_picnic3_L5_verify(const uint8_t *message, size_t mess
 }
 
 #endif
+

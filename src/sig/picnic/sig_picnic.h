@@ -13,7 +13,7 @@
 
 OQS_SIG *OQS_SIG_picnic_L1_FS_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L1_FS_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L1_FS_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L1_FS_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L1_FS_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -27,7 +27,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L1_FS_verify(const uint8_t *message, size_t me
 
 OQS_SIG *OQS_SIG_picnic_L1_UR_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L1_UR_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L1_UR_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L1_UR_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L1_UR_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -41,7 +41,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L1_UR_verify(const uint8_t *message, size_t me
 
 OQS_SIG *OQS_SIG_picnic_L1_full_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L1_full_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L1_full_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L1_full_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L1_full_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -55,7 +55,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L1_full_verify(const uint8_t *message, size_t 
 
 OQS_SIG *OQS_SIG_picnic_L3_FS_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L3_FS_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L3_FS_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L3_FS_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L3_FS_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -69,7 +69,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L3_FS_verify(const uint8_t *message, size_t me
 
 OQS_SIG *OQS_SIG_picnic_L3_UR_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L3_UR_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L3_UR_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L3_UR_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L3_UR_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -83,7 +83,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L3_UR_verify(const uint8_t *message, size_t me
 
 OQS_SIG *OQS_SIG_picnic_L3_full_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L3_full_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L3_full_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L3_full_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L3_full_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -97,7 +97,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L3_full_verify(const uint8_t *message, size_t 
 
 OQS_SIG *OQS_SIG_picnic_L5_FS_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L5_FS_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L5_FS_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L5_FS_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L5_FS_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -111,7 +111,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L5_FS_verify(const uint8_t *message, size_t me
 
 OQS_SIG *OQS_SIG_picnic_L5_UR_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L5_UR_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L5_UR_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L5_UR_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L5_UR_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -125,7 +125,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L5_UR_verify(const uint8_t *message, size_t me
 
 OQS_SIG *OQS_SIG_picnic_L5_full_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic_L5_full_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic_L5_full_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic_L5_full_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic_L5_full_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -139,7 +139,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic_L5_full_verify(const uint8_t *message, size_t 
 
 OQS_SIG *OQS_SIG_picnic3_L1_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic3_L1_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic3_L1_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic3_L1_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic3_L1_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -153,7 +153,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic3_L1_verify(const uint8_t *message, size_t mess
 
 OQS_SIG *OQS_SIG_picnic3_L3_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic3_L3_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic3_L3_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic3_L3_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic3_L3_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 
@@ -167,7 +167,7 @@ OQS_API OQS_STATUS OQS_SIG_picnic3_L3_verify(const uint8_t *message, size_t mess
 
 OQS_SIG *OQS_SIG_picnic3_L5_new(void);
 
-OQS_API OQS_STATUS OQS_SIG_picnic3_L5_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_picnic3_L5_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_picnic3_L5_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_picnic3_L5_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 

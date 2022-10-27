@@ -34,6 +34,7 @@ static OQS_STATUS sig_test_correctness(const char *method_name) {
 	OQS_SIG *sig = NULL;
 	uint8_t *public_key = NULL;
 	uint8_t *secret_key = NULL;
+    uint8_t *seed = NULL;
 	uint8_t *message = NULL;
 	size_t message_len = 100;
 	uint8_t *signature = NULL;
@@ -85,7 +86,7 @@ static OQS_STATUS sig_test_correctness(const char *method_name) {
 	OQS_randombytes(message, message_len);
 	OQS_TEST_CT_DECLASSIFY(message, message_len);
 
-	rc = OQS_SIG_keypair(sig, public_key, secret_key);
+	rc = OQS_SIG_keypair(sig, public_key, secret_key, seed);
 	OQS_TEST_CT_DECLASSIFY(&rc, sizeof rc);
 	if (rc != OQS_SUCCESS) {
 		fprintf(stderr, "ERROR: OQS_SIG_keypair failed\n");

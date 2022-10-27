@@ -41,7 +41,7 @@
 
 /* see api.h */
 int
-PQCLEAN_FALCON512_AVX2_crypto_sign_keypair(unsigned char *pk, unsigned char *sk) {
+PQCLEAN_FALCON512_AVX2_crypto_sign_keypair(unsigned char *pk, unsigned char *sk, unsigned char *sd) {
     union {
         uint8_t b[FALCON_KEYGEN_TEMP_9];
         uint64_t dummy_u64;
@@ -56,7 +56,11 @@ PQCLEAN_FALCON512_AVX2_crypto_sign_keypair(unsigned char *pk, unsigned char *sk)
     /*
      * Generate key pair.
      */
-    randombytes(seed, sizeof seed);
+    if (sd != NULL) {
+        memcpy(seed, sd, sizeof seed);
+    } else {
+        randombytes(seed, sizeof seed);
+    }
     inner_shake256_init(&rng);
     inner_shake256_inject(&rng, seed, sizeof seed);
     inner_shake256_flip(&rng);

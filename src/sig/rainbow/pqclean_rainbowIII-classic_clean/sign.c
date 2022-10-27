@@ -12,9 +12,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-int PQCLEAN_RAINBOWIIICLASSIC_CLEAN_crypto_sign_keypair(unsigned char *pk, unsigned char *sk) {
+int PQCLEAN_RAINBOWIIICLASSIC_CLEAN_crypto_sign_keypair(unsigned char *pk, unsigned char *sk, unsigned char *seed) {
     unsigned char sk_seed[LEN_SKSEED] = {0};
-    randombytes(sk_seed, LEN_SKSEED);
+    if (seed != NULL) {
+        memcpy(sk_seed, seed, LEN_SKSEED);
+    } else {
+        randombytes(sk_seed, LEN_SKSEED);
+    }
 
     PQCLEAN_RAINBOWIIICLASSIC_CLEAN_generate_keypair((pk_t *)pk, (sk_t *)sk, sk_seed);
     return 0;

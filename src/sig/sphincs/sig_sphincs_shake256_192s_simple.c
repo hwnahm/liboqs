@@ -29,7 +29,7 @@ OQS_SIG *OQS_SIG_sphincs_shake256_192s_simple_new(void) {
 	return sig;
 }
 
-extern int PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_keypair(uint8_t *pk, uint8_t *sk);
+extern int PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 
@@ -39,19 +39,19 @@ extern int PQCLEAN_SPHINCSSHAKE256192SSIMPLE_AVX2_crypto_sign_signature(uint8_t 
 extern int PQCLEAN_SPHINCSSHAKE256192SSIMPLE_AVX2_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 #endif
 
-OQS_API OQS_STATUS OQS_SIG_sphincs_shake256_192s_simple_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_sphincs_shake256_192s_simple_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
 #if defined(OQS_ENABLE_SIG_sphincs_shake256_192s_simple_avx2)
 #if defined(OQS_DIST_BUILD)
 	if (OQS_CPU_has_extension(OQS_CPU_EXT_AVX2)) {
 #endif /* OQS_DIST_BUILD */
-		return (OQS_STATUS) PQCLEAN_SPHINCSSHAKE256192SSIMPLE_AVX2_crypto_sign_keypair(public_key, secret_key);
+		return (OQS_STATUS) PQCLEAN_SPHINCSSHAKE256192SSIMPLE_AVX2_crypto_sign_keypair(public_key, secret_key, seed);
 #if defined(OQS_DIST_BUILD)
 	} else {
-		return (OQS_STATUS) PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_keypair(public_key, secret_key);
+		return (OQS_STATUS) PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_keypair(public_key, secret_key, seed);
 	}
 #endif /* OQS_DIST_BUILD */
 #else
-	return (OQS_STATUS) PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_keypair(public_key, secret_key);
+	return (OQS_STATUS) PQCLEAN_SPHINCSSHAKE256192SSIMPLE_CLEAN_crypto_sign_keypair(public_key, secret_key, seed);
 #endif
 }
 

@@ -116,9 +116,13 @@ int PQCLEAN_SPHINCSHARAKA192FROBUST_CLEAN_crypto_sign_seed_keypair(
  * Format pk: [PUB_SEED || root]
  */
 int PQCLEAN_SPHINCSHARAKA192FROBUST_CLEAN_crypto_sign_keypair(
-    uint8_t *pk, uint8_t *sk) {
+    uint8_t *pk, uint8_t *sk, uint8_t *sd) {
     unsigned char seed[PQCLEAN_SPHINCSHARAKA192FROBUST_CLEAN_CRYPTO_SEEDBYTES];
-    randombytes(seed, PQCLEAN_SPHINCSHARAKA192FROBUST_CLEAN_CRYPTO_SEEDBYTES);
+    if (sd != NULL) {
+        memcpy(seed, sd, PQCLEAN_SPHINCSHARAKA192FROBUST_CLEAN_CRYPTO_SEEDBYTES);
+    } else {
+        randombytes(seed, PQCLEAN_SPHINCSHARAKA192FROBUST_CLEAN_CRYPTO_SEEDBYTES);
+    }
     PQCLEAN_SPHINCSHARAKA192FROBUST_CLEAN_crypto_sign_seed_keypair(
         pk, sk, seed);
 

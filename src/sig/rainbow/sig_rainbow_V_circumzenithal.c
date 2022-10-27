@@ -29,12 +29,12 @@ OQS_SIG *OQS_SIG_rainbow_V_circumzenithal_new(void) {
 	return sig;
 }
 
-extern int PQCLEAN_RAINBOWVCIRCUMZENITHAL_CLEAN_crypto_sign_keypair(uint8_t *pk, uint8_t *sk);
+extern int PQCLEAN_RAINBOWVCIRCUMZENITHAL_CLEAN_crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int PQCLEAN_RAINBOWVCIRCUMZENITHAL_CLEAN_crypto_sign_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int PQCLEAN_RAINBOWVCIRCUMZENITHAL_CLEAN_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 
-OQS_API OQS_STATUS OQS_SIG_rainbow_V_circumzenithal_keypair(uint8_t *public_key, uint8_t *secret_key) {
-	return (OQS_STATUS) PQCLEAN_RAINBOWVCIRCUMZENITHAL_CLEAN_crypto_sign_keypair(public_key, secret_key);
+OQS_API OQS_STATUS OQS_SIG_rainbow_V_circumzenithal_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
+	return (OQS_STATUS) PQCLEAN_RAINBOWVCIRCUMZENITHAL_CLEAN_crypto_sign_keypair(public_key, secret_key, seed);
 }
 
 OQS_API OQS_STATUS OQS_SIG_rainbow_V_circumzenithal_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key) {

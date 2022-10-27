@@ -10,7 +10,7 @@
 #define PQCLEAN_DILITHIUM2_AARCH64_CRYPTO_BYTES 2420
 #define PQCLEAN_DILITHIUM2_AARCH64_CRYPTO_ALGNAME "Dilithium2"
 
-int PQCLEAN_DILITHIUM2_AARCH64_crypto_sign_keypair(uint8_t *pk, uint8_t *sk);
+int PQCLEAN_DILITHIUM2_AARCH64_crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 
 int PQCLEAN_DILITHIUM2_AARCH64_crypto_sign_signature(
     uint8_t *sig, size_t *siglen,

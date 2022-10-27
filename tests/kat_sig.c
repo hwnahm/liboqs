@@ -610,6 +610,7 @@ OQS_STATUS sig_kat(const char *method_name) {
 	size_t msg_len = 0;
 	uint8_t *public_key = NULL;
 	uint8_t *secret_key = NULL;
+    uint8_t *sd = NULL;
 	uint8_t *signature = NULL;
 	uint8_t *signed_msg = NULL;
 	size_t signature_len = 0;
@@ -656,7 +657,7 @@ OQS_STATUS sig_kat(const char *method_name) {
 		goto err;
 	}
 
-	rc = OQS_SIG_keypair(sig, public_key, secret_key);
+	rc = OQS_SIG_keypair(sig, public_key, secret_key, sd);
 	if (rc != OQS_SUCCESS) {
 		fprintf(stderr, "[kat_sig] %s ERROR: OQS_SIG_keypair failed!\n", method_name);
 		goto err;

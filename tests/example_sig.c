@@ -43,6 +43,7 @@ static OQS_STATUS example_stack(void) {
 
 	uint8_t public_key[OQS_SIG_dilithium_2_length_public_key];
 	uint8_t secret_key[OQS_SIG_dilithium_2_length_secret_key];
+    uint8_t *seed = NULL;
 	uint8_t message[MESSAGE_LEN];
 	uint8_t signature[OQS_SIG_dilithium_2_length_signature];
 	size_t message_len = MESSAGE_LEN;
@@ -51,7 +52,7 @@ static OQS_STATUS example_stack(void) {
 	// let's create a random test message to sign
 	OQS_randombytes(message, message_len);
 
-	rc = OQS_SIG_dilithium_2_keypair(public_key, secret_key);
+	rc = OQS_SIG_dilithium_2_keypair(public_key, secret_key, seed);
 	if (rc != OQS_SUCCESS) {
 		fprintf(stderr, "ERROR: OQS_SIG_dilithium_2_keypair failed!\n");
 		cleanup_stack(secret_key, OQS_SIG_dilithium_2_length_secret_key);
@@ -95,6 +96,7 @@ static OQS_STATUS example_heap(void) {
 	OQS_SIG *sig = NULL;
 	uint8_t *public_key = NULL;
 	uint8_t *secret_key = NULL;
+    uint8_t *seed = NULL;
 	uint8_t *message = NULL;
 	uint8_t *signature = NULL;
 	size_t message_len = MESSAGE_LEN;
@@ -120,7 +122,7 @@ static OQS_STATUS example_heap(void) {
 	// let's create a random test message to sign
 	OQS_randombytes(message, message_len);
 
-	rc = OQS_SIG_keypair(sig, public_key, secret_key);
+	rc = OQS_SIG_keypair(sig, public_key, secret_key, seed);
 	if (rc != OQS_SUCCESS) {
 		fprintf(stderr, "ERROR: OQS_SIG_keypair failed!\n");
 		cleanup_heap(public_key, secret_key, message, signature, sig);

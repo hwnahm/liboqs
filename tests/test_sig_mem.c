@@ -24,6 +24,7 @@ static OQS_STATUS sig_test_correctness(const char *method_name, SIG_OPS op) {
 	OQS_SIG *sig = NULL;
 	uint8_t *public_key = NULL;
 	uint8_t *secret_key = NULL;
+    uint8_t *seed = NULL;
 	uint8_t *message = NULL;
 	size_t message_len = 100;
 	uint8_t *signature = NULL;
@@ -48,7 +49,7 @@ static OQS_STATUS sig_test_correctness(const char *method_name, SIG_OPS op) {
 			fprintf(stderr, "ERROR: malloc failed\n");
 			goto err;
 		}
-		rc = OQS_SIG_keypair(sig, public_key, secret_key);
+		rc = OQS_SIG_keypair(sig, public_key, secret_key, seed);
 		if (rc != OQS_SUCCESS) {
 			fprintf(stderr, "ERROR: OQS_SIG_keypair failed\n");
 			goto err;

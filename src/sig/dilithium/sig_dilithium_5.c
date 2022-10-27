@@ -29,7 +29,7 @@ OQS_SIG *OQS_SIG_dilithium_5_new(void) {
 	return sig;
 }
 
-extern int pqcrystals_dilithium5_ref_keypair(uint8_t *pk, uint8_t *sk);
+extern int pqcrystals_dilithium5_ref_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int pqcrystals_dilithium5_ref_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int pqcrystals_dilithium5_ref_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 
@@ -40,34 +40,34 @@ extern int pqcrystals_dilithium5_avx2_verify(const uint8_t *sig, size_t siglen, 
 #endif
 
 #if defined(OQS_ENABLE_SIG_dilithium_5_aarch64)
-extern int PQCLEAN_DILITHIUM5_AARCH64_crypto_sign_keypair(uint8_t *pk, uint8_t *sk);
+extern int PQCLEAN_DILITHIUM5_AARCH64_crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int PQCLEAN_DILITHIUM5_AARCH64_crypto_sign_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int PQCLEAN_DILITHIUM5_AARCH64_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 #endif
 
-OQS_API OQS_STATUS OQS_SIG_dilithium_5_keypair(uint8_t *public_key, uint8_t *secret_key) {
+OQS_API OQS_STATUS OQS_SIG_dilithium_5_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed) {
 #if defined(OQS_ENABLE_SIG_dilithium_5_avx2)
 #if defined(OQS_DIST_BUILD)
 	if (OQS_CPU_has_extension(OQS_CPU_EXT_AVX2) && OQS_CPU_has_extension(OQS_CPU_EXT_POPCNT)) {
 #endif /* OQS_DIST_BUILD */
-		return (OQS_STATUS) pqcrystals_dilithium5_avx2_keypair(public_key, secret_key);
+		return (OQS_STATUS) pqcrystals_dilithium5_avx2_keypair(public_key, secret_key, seed);
 #if defined(OQS_DIST_BUILD)
 	} else {
-		return (OQS_STATUS) pqcrystals_dilithium5_ref_keypair(public_key, secret_key);
+		return (OQS_STATUS) pqcrystals_dilithium5_ref_keypair(public_key, secret_key, seed);
 	}
 #endif /* OQS_DIST_BUILD */
 #elif defined(OQS_ENABLE_SIG_dilithium_5_aarch64)
 #if defined(OQS_DIST_BUILD)
 	if (OQS_CPU_has_extension(OQS_CPU_EXT_ARM_NEON)) {
 #endif /* OQS_DIST_BUILD */
-		return (OQS_STATUS) PQCLEAN_DILITHIUM5_AARCH64_crypto_sign_keypair(public_key, secret_key);
+		return (OQS_STATUS) PQCLEAN_DILITHIUM5_AARCH64_crypto_sign_keypair(public_key, secret_key, seed);
 #if defined(OQS_DIST_BUILD)
 	} else {
-		return (OQS_STATUS) pqcrystals_dilithium5_ref_keypair(public_key, secret_key);
+		return (OQS_STATUS) pqcrystals_dilithium5_ref_keypair(public_key, secret_key, seed);
 	}
 #endif /* OQS_DIST_BUILD */
 #else
-	return (OQS_STATUS) pqcrystals_dilithium5_ref_keypair(public_key, secret_key);
+	return (OQS_STATUS) pqcrystals_dilithium5_ref_keypair(public_key, secret_key, seed);
 #endif
 }
 

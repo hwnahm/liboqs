@@ -232,7 +232,7 @@ typedef struct OQS_SIG {
 	 * @param[out] secret_key The secret key represented as a byte string.
 	 * @return OQS_SUCCESS or OQS_ERROR
 	 */
-	OQS_STATUS (*keypair)(uint8_t *public_key, uint8_t *secret_key);
+	OQS_STATUS (*keypair)(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 
 	/**
 	 * Signature generation algorithm.
@@ -287,7 +287,7 @@ OQS_API OQS_SIG *OQS_SIG_new(const char *method_name);
  * @param[out] secret_key The secret key represented as a byte string.
  * @return OQS_SUCCESS or OQS_ERROR
  */
-OQS_API OQS_STATUS OQS_SIG_keypair(const OQS_SIG *sig, uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_keypair(const OQS_SIG *sig, uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 
 /**
  * Signature generation algorithm.

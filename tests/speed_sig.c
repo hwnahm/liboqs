@@ -22,6 +22,7 @@ static OQS_STATUS sig_speed_wrapper(const char *method_name, uint64_t duration, 
 	OQS_SIG *sig = NULL;
 	uint8_t *public_key = NULL;
 	uint8_t *secret_key = NULL;
+    uint8_t *seed = NULL;
 	uint8_t *message = NULL;
 	uint8_t *signature = NULL;
 	size_t message_len = 50;
@@ -46,7 +47,7 @@ static OQS_STATUS sig_speed_wrapper(const char *method_name, uint64_t duration, 
 	OQS_randombytes(message, message_len);
 
 	printf("%-36s | %10s | %14s | %15s | %10s | %25s | %10s\n", sig->method_name, "", "", "", "", "", "");
-	TIME_OPERATION_SECONDS(OQS_SIG_keypair(sig, public_key, secret_key), "keypair", duration)
+	TIME_OPERATION_SECONDS(OQS_SIG_keypair(sig, public_key, secret_key, seed), "keypair", duration)
 	TIME_OPERATION_SECONDS(OQS_SIG_sign(sig, signature, &signature_len, message, message_len, secret_key), "sign", duration)
 	TIME_OPERATION_SECONDS(OQS_SIG_verify(sig, message, message_len, signature, signature_len, public_key), "verify", duration)
 

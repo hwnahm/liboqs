@@ -116,9 +116,13 @@ int PQCLEAN_SPHINCSSHAKE256256SSIMPLE_CLEAN_crypto_sign_seed_keypair(
  * Format pk: [PUB_SEED || root]
  */
 int PQCLEAN_SPHINCSSHAKE256256SSIMPLE_CLEAN_crypto_sign_keypair(
-    uint8_t *pk, uint8_t *sk) {
+    uint8_t *pk, uint8_t *sk, uint8_t *sd) {
     unsigned char seed[PQCLEAN_SPHINCSSHAKE256256SSIMPLE_CLEAN_CRYPTO_SEEDBYTES];
-    randombytes(seed, PQCLEAN_SPHINCSSHAKE256256SSIMPLE_CLEAN_CRYPTO_SEEDBYTES);
+    if (sd != NULL) {
+        memcpy(seed, sd, PQCLEAN_SPHINCSSHAKE256256SSIMPLE_CLEAN_CRYPTO_SEEDBYTES);
+    } else {
+        randombytes(seed, PQCLEAN_SPHINCSSHAKE256256SSIMPLE_CLEAN_CRYPTO_SEEDBYTES);
+    }
     PQCLEAN_SPHINCSSHAKE256256SSIMPLE_CLEAN_crypto_sign_seed_keypair(
         pk, sk, seed);
 

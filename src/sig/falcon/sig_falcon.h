@@ -11,7 +11,7 @@
 #define OQS_SIG_falcon_512_length_signature 690
 
 OQS_SIG *OQS_SIG_falcon_512_new(void);
-OQS_API OQS_STATUS OQS_SIG_falcon_512_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_falcon_512_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_falcon_512_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_falcon_512_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 #endif
@@ -22,7 +22,7 @@ OQS_API OQS_STATUS OQS_SIG_falcon_512_verify(const uint8_t *message, size_t mess
 #define OQS_SIG_falcon_1024_length_signature 1330
 
 OQS_SIG *OQS_SIG_falcon_1024_new(void);
-OQS_API OQS_STATUS OQS_SIG_falcon_1024_keypair(uint8_t *public_key, uint8_t *secret_key);
+OQS_API OQS_STATUS OQS_SIG_falcon_1024_keypair(uint8_t *public_key, uint8_t *secret_key, uint8_t *seed);
 OQS_API OQS_STATUS OQS_SIG_falcon_1024_sign(uint8_t *signature, size_t *signature_len, const uint8_t *message, size_t message_len, const uint8_t *secret_key);
 OQS_API OQS_STATUS OQS_SIG_falcon_1024_verify(const uint8_t *message, size_t message_len, const uint8_t *signature, size_t signature_len, const uint8_t *public_key);
 #endif
