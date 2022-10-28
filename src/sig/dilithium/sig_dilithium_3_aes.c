@@ -34,7 +34,7 @@ extern int pqcrystals_dilithium3aes_ref_signature(uint8_t *sig, size_t *siglen, 
 extern int pqcrystals_dilithium3aes_ref_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 
 #if defined(OQS_ENABLE_SIG_dilithium_3_aes_avx2)
-extern int pqcrystals_dilithium3aes_avx2_keypair(uint8_t *pk, uint8_t *sk);
+extern int pqcrystals_dilithium3aes_avx2_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int pqcrystals_dilithium3aes_avx2_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int pqcrystals_dilithium3aes_avx2_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 #endif

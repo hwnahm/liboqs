@@ -12,7 +12,7 @@
 #define pqcrystals_dilithium2_ref_SECRETKEYBYTES pqcrystals_dilithium2_SECRETKEYBYTES
 #define pqcrystals_dilithium2_ref_BYTES pqcrystals_dilithium2_BYTES
 
-int pqcrystals_dilithium2_ref_keypair(uint8_t *pk, uint8_t *sk);
+int pqcrystals_dilithium2_ref_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 
 int pqcrystals_dilithium2_ref_signature(uint8_t *sig, size_t *siglen,
                                         const uint8_t *m, size_t mlen,
