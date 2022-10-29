@@ -216,6 +216,7 @@ typedef struct OQS_SIG {
 
     /** The (maximum) length, in bytes, of seed for this signature scheme. */
     size_t length_seed;
+
 	/** The (maximum) length, in bytes, of public keys for this signature scheme. */
 	size_t length_public_key;
 	/** The (maximum) length, in bytes, of secret keys for this signature scheme. */
