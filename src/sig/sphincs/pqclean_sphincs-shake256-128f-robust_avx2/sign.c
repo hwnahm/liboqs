@@ -136,7 +136,7 @@ int PQCLEAN_SPHINCSSHAKE256128FROBUST_AVX2_crypto_sign_keypair(
         uint8_t seed[PQCLEAN_SPHINCSSHAKE256128FROBUST_AVX2_CRYPTO_SEEDBYTES];
     } aligned_seed;
     if (seed != NULL) {
-        memcpy(aligned_seed.seed, sd, PQCLEAN_SPHINCSSHAKE256128FROBUST_AVX2_CRYPTO_SEEDBYTES);
+        memcpy(aligned_seed.seed, seed, PQCLEAN_SPHINCSSHAKE256128FROBUST_AVX2_CRYPTO_SEEDBYTES);
     } else {
         randombytes(aligned_seed.seed, PQCLEAN_SPHINCSSHAKE256128FROBUST_AVX2_CRYPTO_SEEDBYTES);
     }
