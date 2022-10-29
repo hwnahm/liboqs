@@ -34,7 +34,7 @@ extern int PQCLEAN_SPHINCSSHA256256FSIMPLE_CLEAN_crypto_sign_signature(uint8_t *
 extern int PQCLEAN_SPHINCSSHA256256FSIMPLE_CLEAN_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 
 #if defined(OQS_ENABLE_SIG_sphincs_sha256_256f_simple_avx2)
-extern int PQCLEAN_SPHINCSSHA256256FSIMPLE_AVX2_crypto_sign_keypair(uint8_t *pk, uint8_t *sk);
+extern int PQCLEAN_SPHINCSSHA256256FSIMPLE_AVX2_crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int PQCLEAN_SPHINCSSHA256256FSIMPLE_AVX2_crypto_sign_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int PQCLEAN_SPHINCSSHA256256FSIMPLE_AVX2_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 #endif

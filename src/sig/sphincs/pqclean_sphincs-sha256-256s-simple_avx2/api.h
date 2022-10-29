@@ -48,7 +48,7 @@ int PQCLEAN_SPHINCSSHA256256SSIMPLE_AVX2_crypto_sign_seed_keypair(
  * Format pk: [root || PUB_SEED]
  */
 int PQCLEAN_SPHINCSSHA256256SSIMPLE_AVX2_crypto_sign_keypair(
-    uint8_t *pk, uint8_t *sk);
+    uint8_t *pk, uint8_t *sk, uint8_t *seed);
 
 /**
  * Returns an array containing a detached signature.

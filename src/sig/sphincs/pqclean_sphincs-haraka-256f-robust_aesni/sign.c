@@ -117,7 +117,7 @@ int PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_crypto_sign_seed_keypair(
  * Format pk: [PUB_SEED || root]
  */
 int PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_crypto_sign_keypair(
-    uint8_t *pk, uint8_t *sk) {
+    uint8_t *pk, uint8_t *sk, uint8_t *seed) {
 
     // guarantee alignment of pk
     union {
@@ -135,7 +135,11 @@ int PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_crypto_sign_keypair(
         __m128 _x[PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_CRYPTO_SEEDBYTES / 16];
         uint8_t seed[PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_CRYPTO_SEEDBYTES];
     } aligned_seed;
-    randombytes(aligned_seed.seed, PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_CRYPTO_SEEDBYTES);
+    if (seed != NULL) {
+        memcpy(aligned_seed.seed, seed, PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_CRYPTO_SEEDBYTES);
+    } else {
+        randombytes(aligned_seed.seed, PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_CRYPTO_SEEDBYTES);
+    }
 
     PQCLEAN_SPHINCSHARAKA256FROBUST_AESNI_crypto_sign_seed_keypair(
         aligned_pk.pk, aligned_sk.sk, aligned_seed.seed);

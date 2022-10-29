@@ -34,7 +34,7 @@ extern int PQCLEAN_SPHINCSHARAKA192SROBUST_CLEAN_crypto_sign_signature(uint8_t *
 extern int PQCLEAN_SPHINCSHARAKA192SROBUST_CLEAN_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 
 #if defined(OQS_ENABLE_SIG_sphincs_haraka_192s_robust_aesni)
-extern int PQCLEAN_SPHINCSHARAKA192SROBUST_AESNI_crypto_sign_keypair(uint8_t *pk, uint8_t *sk);
+extern int PQCLEAN_SPHINCSHARAKA192SROBUST_AESNI_crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed);
 extern int PQCLEAN_SPHINCSHARAKA192SROBUST_AESNI_crypto_sign_signature(uint8_t *sig, size_t *siglen, const uint8_t *m, size_t mlen, const uint8_t *sk);
 extern int PQCLEAN_SPHINCSHARAKA192SROBUST_AESNI_crypto_sign_verify(const uint8_t *sig, size_t siglen, const uint8_t *m, size_t mlen, const uint8_t *pk);
 #endif

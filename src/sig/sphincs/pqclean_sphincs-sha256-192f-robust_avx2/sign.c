@@ -116,9 +116,13 @@ int PQCLEAN_SPHINCSSHA256192FROBUST_AVX2_crypto_sign_seed_keypair(
  * Format pk: [PUB_SEED || root]
  */
 int PQCLEAN_SPHINCSSHA256192FROBUST_AVX2_crypto_sign_keypair(
-    uint8_t *pk, uint8_t *sk) {
+    uint8_t *pk, uint8_t *sk, uint8_t *sd) {
     unsigned char seed[PQCLEAN_SPHINCSSHA256192FROBUST_AVX2_CRYPTO_SEEDBYTES];
-    randombytes(seed, PQCLEAN_SPHINCSSHA256192FROBUST_AVX2_CRYPTO_SEEDBYTES);
+    if (sd != NULL) {
+        memcpy(seed, sd, PQCLEAN_SPHINCSSHA256192FROBUST_AVX2_CRYPTO_SEEDBYTES);
+    } else {
+        randombytes(seed, PQCLEAN_SPHINCSSHA256192FROBUST_AVX2_CRYPTO_SEEDBYTES);
+    }
     PQCLEAN_SPHINCSSHA256192FROBUST_AVX2_crypto_sign_seed_keypair(
         pk, sk, seed);
 
