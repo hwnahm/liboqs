@@ -7,6 +7,7 @@
 #include "sign.h"
 #include "symmetric.h"
 #include <stdint.h>
+#include <string.h>
 
 /*************************************************
 * Name:        crypto_sign_keypair
@@ -29,7 +30,11 @@ int crypto_sign_keypair(uint8_t *pk, uint8_t *sk, uint8_t *seed) {
     polyveck s2, t1, t0;
 
     /* Get randomness for rho, rhoprime and key */
-    randombytes(seedbuf, SEEDBYTES);    // need to be modified to use input parameter seed
+    if (seed != NULL) {
+        memcpy(seedbuf, seed, SEEDBYTES);
+    } else {
+        randombytes(seedbuf, SEEDBYTES);
+    }
     shake256(seedbuf, 2 * SEEDBYTES + CRHBYTES, seedbuf, SEEDBYTES);
     rho = seedbuf;
     rhoprime = rho + SEEDBYTES;
